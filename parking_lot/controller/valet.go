@@ -18,7 +18,7 @@ func CalculateValet(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintf(
 		w,
-		"$ %.2f",
+		"$%.2f",
 		valet.New().CalculateParkingCost(minutesSpent),
 	)
 }

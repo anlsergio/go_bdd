@@ -1,10 +1,11 @@
-package main
+package valet
 
 import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strings"
+	"testing"
 
 	"github.com/anlsergio/go_bdd/parking_lot/config"
 	"github.com/cucumber/godog"
@@ -14,6 +15,21 @@ var (
 	apiURL = fmt.Sprintf("%s:%d", config.ServerHost, config.ServerPort)
 	res    *http.Response
 )
+
+func TestFeatures(t *testing.T) {
+	suite := godog.TestSuite{
+		ScenarioInitializer: InitializeScenario,
+		Options: &godog.Options{
+			Format:   "pretty",
+			Paths:    []string{"../../features"},
+			TestingT: t,
+		},
+	}
+
+	if suite.Run() != 0 {
+		t.Fatal("non-zero status returned, failed to run feature tests")
+	}
+}
 
 func aRequestIsSentToTheEndpoint(httpMethod, endpoint string) error {
 	reader := strings.NewReader("")

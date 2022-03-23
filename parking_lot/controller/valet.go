@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/anlsergio/go_bdd/parking_lot/domain/valet"
+	"github.com/anlsergio/go_bdd/parking_lot/model/valet"
 	"github.com/gorilla/mux"
 )
 

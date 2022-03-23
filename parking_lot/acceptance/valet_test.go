@@ -1,27 +1,38 @@
-package valet
+package acceptance
 
 import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/http/httptest"
+	"os"
 	"strings"
 	"testing"
 
+	"github.com/anlsergio/go_bdd/parking_lot/app/server"
 	"github.com/anlsergio/go_bdd/parking_lot/config"
 	"github.com/cucumber/godog"
 )
 
 var (
 	apiURL = fmt.Sprintf("%s:%d", config.ServerHost, config.ServerPort)
-	res    *http.Response
+	w      *httptest.ResponseRecorder
 )
+
+var apiServer *server.Server
+
+func TestMain(m *testing.M) {
+	apiServer = server.New()
+	code := m.Run()
+	os.Exit(code)
+}
 
 func TestFeatures(t *testing.T) {
 	suite := godog.TestSuite{
 		ScenarioInitializer: InitializeScenario,
 		Options: &godog.Options{
 			Format:   "pretty",
-			Paths:    []string{"../../features"},
+			Paths:    []string{"features"},
 			TestingT: t,
 		},
 	}
@@ -32,31 +43,32 @@ func TestFeatures(t *testing.T) {
 }
 
 func aRequestIsSentToTheEndpoint(httpMethod, endpoint string) error {
-	reader := strings.NewReader("")
 	req, err := http.NewRequest(
 		httpMethod,
 		apiURL+endpoint,
-		reader)
+		nil)
 	if err != nil {
 		return fmt.Errorf("could not create request %s", err.Error())
 	}
 
-	res, err = http.DefaultClient.Do(req)
-	if err != nil {
-		return fmt.Errorf("could not send request %s", err.Error())
-	}
+	w = httptest.NewRecorder()
+	// res, err = http.DefaultClient.Do(req)
+	apiServer.Router.ServeHTTP(w, req)
+	// if err != nil {
+	// 	return fmt.Errorf("could not send request %s", err.Error())
+	// }
 	return nil
 }
 
 func theHTTPResponseCodeShouldBe(wantCode int) error {
-	if wantCode != res.StatusCode {
-		return fmt.Errorf("the status code is different than the expected one. Want '%d', got '%d'", wantCode, res.StatusCode)
+	if wantCode != w.Code {
+		return fmt.Errorf("the status code is different than the expected one. Want '%d', got '%d'", wantCode, w.Code)
 	}
 	return nil
 }
 
 func theResponseContentShouldBe(wantContent string) error {
-	body, err := ioutil.ReadAll(res.Body)
+	body, err := ioutil.ReadAll(w.Body)
 	if err != nil {
 		return fmt.Errorf("could not read from the response body: %s", err)
 	}

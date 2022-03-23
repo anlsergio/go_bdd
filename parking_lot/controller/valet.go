@@ -14,8 +14,6 @@ func CalculateValet(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	minutesSpent, _ := strconv.Atoi(vars["minutes"])
 
-	fmt.Println("minutes spent at the parking a lot: ", minutesSpent)
-
 	fmt.Fprintf(
 		w,
 		"$%.2f",

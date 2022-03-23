@@ -67,4 +67,4 @@ For the surface one, the cost calculation is as follow:
 
 <br />
 
->Note: all costs considers the overall parking duration time, not the day specifically. In other words, 24 hours is condered a day, it doesn't matter if the check-in takes place one day and the check-out another day, it doesn't yeld one day plus another day.
+>Note: the cost calculation should consider the overall parking duration time, not the day specifically. In other words, 24 hours is condered a day, it doesn't matter if the check-in takes place one day and the check-out another day, it doesn't yeld one day plus another day.

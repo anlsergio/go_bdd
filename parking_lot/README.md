@@ -1,8 +1,4 @@
-# Golang BDD
-
-This repository holds the result/practice of my study around implementing Acceptance Test Driven Development (ATDD) and Behavior Driven Development (BDD) by using Golang.
-
-## [Parking Lot API](#/parking_lot)
+# Parking Lot API
 
 This is a backend application designed to fullfil a request from a frontend squad of developers at the dummy's Southeast Airports Inc.
 
@@ -16,7 +12,7 @@ Here's the definition of the 5 different parking modalities how the cost is bein
 
 <br />
 
-### Valet Parking Lot:
+## Valet Parking Lot:
 
 In Valet Parking Lot, the passenger drops his or her car off at the valet dropoff and gets a receipt to get the car back.
 
@@ -24,7 +20,7 @@ The Valet parking costs $18.00 a day, but for 5 hours or less there's a reductio
 
 <br />
 
-### Short-Term Parking Lot:
+## Short-Term Parking Lot:
 
 For short-term parking, there are places for visitors dropping off or picking up other passengers.
 
@@ -34,7 +30,7 @@ It's important to emphasize that the $2.00 first hour is exclusive to the first 
 
 <br />
 
-### Economy Parking Lot:
+## Economy Parking Lot:
 
 This parking lot is placed way apart from the airport, and that's what makes it cheaper for passengers. So that passengers need to make use of the bus shuttle which is offered at their disposal.
 
@@ -47,11 +43,11 @@ The cost calculation is as follow:
 
 <br />
 
-### Long-Term Parking Lot:
+## Long-Term Parking Lot:
 
 Both the Garage and the Surface modalities are variations of the Economy Parking Lot.
 
-#### Long-Term - Garage Parking Lot:
+### Long-Term - Garage Parking Lot:
 
 For the long-term in the garage the costs are applied as follow:
 
@@ -61,7 +57,7 @@ For the long-term in the garage the costs are applied as follow:
 
 <br />
 
-#### Long-Term - Surface Parking Lot:
+### Long-Term - Surface Parking Lot:
 
 For the surface one, the cost calculation is as follow:
 

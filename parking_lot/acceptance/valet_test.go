@@ -11,6 +11,7 @@ import (
 
 	"github.com/anlsergio/go_bdd/parking_lot/app/server"
 	"github.com/anlsergio/go_bdd/parking_lot/config"
+	"github.com/anlsergio/go_bdd/parking_lot/utils"
 	"github.com/cucumber/godog"
 )
 
@@ -43,16 +44,12 @@ func TestFeatures(t *testing.T) {
 }
 
 func aRequestIsSentToTheEndpoint(httpMethod, endpoint string) error {
-	req, err := http.NewRequest(
-		httpMethod,
-		apiURL+endpoint,
-		nil)
+	req, err := http.NewRequest(httpMethod, apiURL+endpoint, nil)
 	if err != nil {
 		return fmt.Errorf("could not create request %s", err.Error())
 	}
 
-	w = httptest.NewRecorder()
-	apiServer.Router.ServeHTTP(w, req)
+	w = utils.ExecuteRequest(apiServer.Router, req)
 	return nil
 }
 

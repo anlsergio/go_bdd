@@ -52,11 +52,7 @@ func aRequestIsSentToTheEndpoint(httpMethod, endpoint string) error {
 	}
 
 	w = httptest.NewRecorder()
-	// res, err = http.DefaultClient.Do(req)
 	apiServer.Router.ServeHTTP(w, req)
-	// if err != nil {
-	// 	return fmt.Errorf("could not send request %s", err.Error())
-	// }
 	return nil
 }
 

@@ -33,7 +33,7 @@ func TestFeatures(t *testing.T) {
 		ScenarioInitializer: InitializeScenario,
 		Options: &godog.Options{
 			Format:   "pretty",
-			Paths:    []string{"../../acceptance/features"},
+			Paths:    []string{"../../acceptance/features/valet.feature"},
 			TestingT: t,
 		},
 	}

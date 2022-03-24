@@ -1,4 +1,4 @@
-package acceptance
+package valet_test
 
 import (
 	"fmt"
@@ -33,7 +33,7 @@ func TestFeatures(t *testing.T) {
 		ScenarioInitializer: InitializeScenario,
 		Options: &godog.Options{
 			Format:   "pretty",
-			Paths:    []string{"features"},
+			Paths:    []string{"../../acceptance/features"},
 			TestingT: t,
 		},
 	}

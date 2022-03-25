@@ -16,6 +16,7 @@ func New() *Valet {
 	}
 }
 
+// CalculateParkingCost effectively calculates the value to be charged given a specific duration time
 func (v *Valet) CalculateParkingCost(minutesSpent int) float32 {
 	if minutesSpent <= v.discountThresholdInMinutes {
 		return v.dailyCost - v.discount

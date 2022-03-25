@@ -1,5 +1,10 @@
 package valet
 
+const (
+	hourInMinutes int = 60
+	dayInMinutes  int = 24 * hourInMinutes
+)
+
 // ValetCalculator represents the Valet parking modality
 type ValetCalculator struct {
 	dailyCost                  float32
@@ -12,7 +17,7 @@ func New() *ValetCalculator {
 	return &ValetCalculator{
 		dailyCost:                  18.00,
 		discount:                   6.00,
-		discountThresholdInMinutes: 5 * 60,
+		discountThresholdInMinutes: 5 * hourInMinutes,
 	}
 }
 
@@ -27,8 +32,8 @@ func (v *ValetCalculator) CalculateParkingCost(minutesSpent int) float32 {
 
 func getNumberOfDaysSpent(minutesSpent int) int {
 	if minutesSpent > 0 {
-		daysSpent := minutesSpent / (60 * 24)
-		leftoverTime := minutesSpent % (60 * 24)
+		daysSpent := minutesSpent / dayInMinutes
+		leftoverTime := minutesSpent % dayInMinutes
 		if leftoverTime > 0 {
 			daysSpent++
 		}

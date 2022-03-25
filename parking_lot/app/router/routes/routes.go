@@ -15,8 +15,9 @@ type Route struct {
 
 // SetRouter registers all routes into a given router
 func SetRouter(r *mux.Router) *mux.Router {
-	routes := valetRoutes
-	routes = append(routes, homeRoutes...)
+	routes := homeRoutes
+	routes = append(routes, valetRoutes...)
+	routes = append(routes, shortTermRoutes...)
 
 	for _, route := range routes {
 		r.HandleFunc(

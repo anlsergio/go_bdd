@@ -1,5 +1,10 @@
 package shortterm
 
+const (
+	hourInMinutes int = 60
+	dayInMinutes  int = 24 * hourInMinutes
+)
+
 // ShortTermCalculator represents the Short Term parking modality
 type ShortTermCalculator struct {
 	minimumCost                    float32
@@ -14,7 +19,7 @@ func New() *ShortTermCalculator {
 		minimumCost:                    2.00,
 		costToBeAdded:                  1.00,
 		costToBeAddedIntervalInMinutes: 30,
-		dailyMaximumCost:               24,
+		dailyMaximumCost:               24.00,
 	}
 }
 
@@ -22,7 +27,7 @@ func New() *ShortTermCalculator {
 func (s *ShortTermCalculator) CalculateParkingCost(minutesSpent int) float32 {
 	var overallCost float32
 
-	if minutesSpent > (60 * 24) {
+	if minutesSpent > dayInMinutes {
 		numberOfDays, leftover := getNumberOfDaysSpentWithMinutesLeftovers(minutesSpent)
 		overallCost = float32(numberOfDays) * s.dailyMaximumCost
 		minutesSpent = leftover
@@ -45,8 +50,8 @@ func (s *ShortTermCalculator) CalculateParkingCost(minutesSpent int) float32 {
 
 func getNumberOfDaysSpentWithMinutesLeftovers(minutesSpent int) (int, int) {
 	if minutesSpent > 0 {
-		daysSpent := minutesSpent / (60 * 24)
-		leftoverTime := minutesSpent % (60 * 24)
+		daysSpent := minutesSpent / dayInMinutes
+		leftoverTime := minutesSpent % dayInMinutes
 		return daysSpent, leftoverTime
 	}
 	return 0, 0

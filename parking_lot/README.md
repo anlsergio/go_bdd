@@ -74,6 +74,28 @@ The cost calculation is as follow:
 
 <br />
 
+Workshop examples:
+
+| parking-duration | parking-cost |
+|------------------|--------------|
+| 30m              | $2.00        |
+| 1h               | $2.00        |
+| 4h               | $8.00        |
+| 5h               | $9.00        |
+| 6h               | $9.00        |
+| 24h              | $9.00        |
+| 1day1h           | $11.00       |
+| 1day3h           | $15.00       |
+| 1day5h           | $18.00       |
+| 6days            | $54.00       |
+| 6days1h          | $54.00       |
+| 7days            | $54.00       |
+| 1week,2days      | $72.00       |
+| 3weeks           | $162.00      |
+
+
+<br />
+
 ## Long-Term Parking Lot:
 
 Both the Garage and the Surface modalities are variations of the Economy Parking Lot.
@@ -88,6 +110,27 @@ For the long-term in the garage the costs are applied as follow:
 
 <br />
 
+Workshop examples:
+
+| parking-duration | parking-cost |
+|------------------|--------------|
+| 30m              | $2.00        |
+| 1h               | $2.00        |
+| 3h               | $6.00        |
+| 6h               | $12.00       |
+| 7h               | $12.00       |
+| 24h              | $12.00       |
+| 1day1h           | $14.00       |
+| 1day3h           | $18.00       |
+| 1day7h           | $24.00       |
+| 6days            | $72.00       |
+| 6days1h          | $72.00       |
+| 7days            | $72.00       |
+| 1week,2days      | $96.00       |
+| 3weeks           | $216.00      |
+
+<br />
+
 ### Long-Term - Surface Parking Lot:
 
 For the surface one, the cost calculation is as follow:
@@ -95,6 +138,27 @@ For the surface one, the cost calculation is as follow:
 - $2.00 per hour
 - $10.00 as daily maximum
 - 7th day is free of charge
+
+<br />
+
+Workshop examples:
+
+| parking-duration | parking-cost |
+|------------------|--------------|
+| 30m              | $2.00        |
+| 1h               | $2.00        |
+| 5h               | $10.00       |
+| 6h               | $10.00       |
+| 24h              | $10.00       |
+| 1day1h           | $12.00       |
+| 1day3h           | $16.00       |
+| 1day6h           | $20.00       |
+| 6days            | $60.00       |
+| 6days1h          | $60.00       |
+| 7days            | $60.00       |
+| 1week,2days      | $80.00       |
+| 3weeks           | $180.00      |
+
 
 <br />
 

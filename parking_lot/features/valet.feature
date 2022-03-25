@@ -8,13 +8,13 @@ Feature: Calculate price for Valet Parking
     Then the HTTP response code should be 200
     And the response content should be "<parking-cost>"
     Examples:
-        | parking-duration | parking-cost |
-        |       30         |    $12.00    |
-        |       180        |    $12.00    |
-        |       300        |    $12.00    |
-        |       301        |    $18.00    |
-        |       720        |    $18.00    |
-        |       1440       |    $18.00    |
-        |       1441       |    $36.00    |
-        |       4320       |    $54.00    |
-        |       10080      |    $126.00   |
+        | caption  | parking-duration | parking-cost |
+        | 30m      | 30               | $12.00       |
+        | 3h       | 180              | $12.00       |
+        | 5h       | 300              | $12.00       |
+        | 5h1m     | 301              | $18.00       |
+        | 12h      | 720              | $18.00       |
+        | 24h      | 1440             | $18.00       |
+        | 1day1m   | 1441             | $36.00       |
+        | 3days    | 4320             | $54.00       |
+        | 1week    | 10080            | $126.00      |

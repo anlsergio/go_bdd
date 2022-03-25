@@ -20,6 +20,22 @@ The Valet parking costs $18.00 a day, but for 5 hours or less there's a reductio
 
 <br />
 
+Workshop examples:
+
+| parking-duration  | parking-cost |
+|-------------------|--------------|
+| 30m               | $12.00       |
+| 3h                | $12.00       |
+| 5h                | $12.00       |
+| 5h1m              | $18.00       |
+| 12h               | $18.00       |
+| 24h               | $18.00       |
+| 1day1m            | $36.00       |
+| 3days             | $54.00       |
+| 1week             | $126.00      |
+
+<br />
+
 ## Short-Term Parking Lot:
 
 For short-term parking, there are places for visitors dropping off or picking up other passengers.
@@ -27,6 +43,21 @@ For short-term parking, there are places for visitors dropping off or picking up
 Customers are charged $2.00 for the first hour only, then an additional $1.00 for each half hour passed the first hour. Although there's a daily maximum of $24.00.
 
 It's important to emphasize that the $2.00 first hour is exclusive to the first hour only, and therefore, it doesn't apply for the 2nd day and on.
+
+<br />
+
+Workshop examples:
+
+| parking-duration | parking-cost |
+|------------------|--------------|
+| 30m              | $2.00        |
+| 1h               | $2.00        |
+| 3h30m            | $7.00        |
+| 12h              | $24.00       |
+| 12h30m           | $24.00       |
+| 1day             | $24.00       |
+| 1day1h           | $26.00       |
+| 1day30m          | $25.00       |
 
 <br />
 
